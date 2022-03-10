@@ -104,75 +104,83 @@
 <ng-template #template class="">
 
     <div class="modal-body raceModal p-0">
-        <img src="assets/images/giphy.webp" width="590">
-        <progressbar class="mt-2 mb-2" [max]="100" [value]="66" [striped]="true" [animate]="true"><i></i></progressbar>
-        <div class="race-grid m-2">
-            <div class="m-3"><span class="badge bg-danger text-white">1 st</span></div>
-            <div class="m-3">
-                <img src="assets/images/ps1.png" width="38"></div>
-            <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
-            <div class="m-3">
-                <span class="ms-2">Drift : <strong>7</strong></span>
+        <button *ngIf="progress >= 100" type="button" class="btn-close close pull-right ps-3 pt-3 " aria-label="Close" (click)="modalRef?.hide()"></button>
+        <div *ngIf="progress >= 100" class="text-center mt-1 txt2 fw-bold fs-4 mt-5"> Position : {{position}}</div>
+        <hr *ngIf="progress >= 100" class="mt-1">
+        <img *ngIf="progress < 100" src="assets/images/giphy.webp" width="590">
+        <progressbar *ngIf="progress < 100" class="mt-2 mb-2" [max]="100" [value]="progress" [striped]="true" [animate]="true"><i></i></progressbar>
+        <div class="container" *ngFor="let racer of racers;index as index;trackBy: trackBy" >
+            <div class="race-grid m-2 shuffle-item">
+                <div class="m-3"><span class="badge {{positionColor[index+1]}} text-white">{{index+1}} st</span></div>
+                <div class="m-3">
+                    <img src="assets/images/ps{{racer.id}}.png" width="38"></div>
+                <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
+                <div class="m-3">
+                    <span class="ms-2">Drift : <strong>{{racer.drift}}</strong></span>
+                </div>
+                <div class="m-3">
+                    <span class="ms-2">Power : <strong>{{racer.power}}</strong></span>
+                </div>
+                <div class="m-3">
+                    <span class="ms-2">Speed : <strong>{{racer.speed}}</strong></span>
+                </div>
             </div>
-            <div class="m-3">
-                <span class="ms-2">Power : <strong>7</strong></span>
+            <!-- <div class="race-grid m-2">
+                <div class="m-3"><span class="badge bg-warning text-white">2 nd</span></div>
+                <div class="m-3"><img src="assets/images/ps2.png" width="38"></div>
+                <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
+                <div class="m-3">
+                    <span class="ms-2">Drift : <strong>7</strong></span>
+                </div>
+                <div class="m-3">
+                    <span class="ms-2">Power : <strong>7</strong></span>
+                </div>
+                <div class="m-3">
+                    <span class="ms-2">Speed : <strong>7</strong></span>
+                </div>
             </div>
-            <div class="m-3">
-                <span class="ms-2">Speed : <strong>7</strong></span>
+            <div class="race-grid m-2">
+                <div class="m-3"><span class="badge bg-primary text-white">3 rd</span></div>
+                <div class="m-3"><img src="assets/images/ps3.png" width="38"></div>
+                <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
+                <div class="m-3">
+                    <span class="ms-2">Drift : <strong>7</strong></span>
+                </div>
+                <div class="m-3">
+                    <span class="ms-2">Power : <strong>7</strong></span>
+                </div>
+                <div class="m-3">
+                    <span class="ms-2">Speed : <strong>7</strong></span>
+                </div>
             </div>
-        </div>
-        <div class="race-grid m-2">
-            <div class="m-3"><span class="badge bg-warning text-white">2 nd</span></div>
-            <div class="m-3"><img src="assets/images/ps2.png" width="38"></div>
-            <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
-            <div class="m-3">
-                <span class="ms-2">Drift : <strong>7</strong></span>
+            <div class="race-grid m-2">
+                <div class="m-3"><span class="badge bg-success text-white">4 th</span></div>
+                <div class="m-3"><img src="assets/images/ps4.png" width="38"></div>
+                <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
+                <div class="m-3">
+                    <span class="ms-2">Drift : <strong>7</strong></span>
+                </div>
+                <div class="m-3">
+                    <span class="ms-2">Power : <strong>7</strong></span>
+                </div>
+                <div class="m-3">
+                    <span class="ms-2">Speed : <strong>7</strong></span>
+                </div>
             </div>
-            <div class="m-3">
-                <span class="ms-2">Power : <strong>7</strong></span>
-            </div>
-            <div class="m-3">
-                <span class="ms-2">Speed : <strong>7</strong></span>
-            </div>
-        </div><div class="race-grid m-2">
-            <div class="m-3"><span class="badge bg-primary text-white">3 rd</span></div>
-            <div class="m-3"><img src="assets/images/ps3.png" width="38"></div>
-            <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
-            <div class="m-3">
-                <span class="ms-2">Drift : <strong>7</strong></span>
-            </div>
-            <div class="m-3">
-                <span class="ms-2">Power : <strong>7</strong></span>
-            </div>
-            <div class="m-3">
-                <span class="ms-2">Speed : <strong>7</strong></span>
-            </div>
-        </div><div class="race-grid m-2">
-            <div class="m-3"><span class="badge bg-success text-white">4 th</span></div>
-            <div class="m-3"><img src="assets/images/ps4.png" width="38"></div>
-            <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
-            <div class="m-3">
-                <span class="ms-2">Drift : <strong>7</strong></span>
-            </div>
-            <div class="m-3">
-                <span class="ms-2">Power : <strong>7</strong></span>
-            </div>
-            <div class="m-3">
-                <span class="ms-2">Speed : <strong>7</strong></span>
-            </div>
-        </div><div class="race-grid m-2">
-            <div class="m-3"><span class="badge bg-info text-white">5 th</span></div>
-            <div class="m-3"><img src="assets/images/ps5.png" width="38"></div>
-            <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
-            <div class="m-3">
-                <span class="ms-2">Drift : <strong>7</strong></span>
-            </div>
-            <div class="m-3">
-                <span class="ms-2">Power : <strong>7</strong></span>
-            </div>
-            <div class="m-3">
-                <span class="ms-2">Speed : <strong>7</strong></span>
-            </div>
+            <div class="race-grid m-2">
+                <div class="m-3"><span class="badge bg-info text-white">5 th</span></div>
+                <div class="m-3"><img src="assets/images/ps5.png" width="38"></div>
+                <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
+                <div class="m-3">
+                    <span class="ms-2">Drift : <strong>7</strong></span>
+                </div>
+                <div class="m-3">
+                    <span class="ms-2">Power : <strong>7</strong></span>
+                </div>
+                <div class="m-3">
+                    <span class="ms-2">Speed : <strong>7</strong></span>
+                </div>
+            </div> -->
         </div>
     </div>
 </ng-template>
