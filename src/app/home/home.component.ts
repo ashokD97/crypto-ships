@@ -78,4 +78,14 @@ export class HomeComponent implements OnInit {
   trackBy(index:any, x:any) {
     return x;
   }
+  reset(){
+    this.progress = 0;
+    this.racers  = [
+      {id:1, drift: 1, power: 2, speed: 3 },
+      {id:2, drift: 2, power: 2, speed: 3 },
+      {id:3, drift: 4, power: 2, speed: 3 },
+      {id:4, drift: 1, power: 3, speed: 3 },
+      {id:5, drift: 3, power: 2, speed: 1 }
+    ];
+  }
 }

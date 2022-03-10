@@ -104,7 +104,7 @@
 <ng-template #template class="">
 
     <div class="modal-body raceModal p-0">
-        <button *ngIf="progress >= 100" type="button" class="btn-close close pull-right ps-3 pt-3 " aria-label="Close" (click)="modalRef?.hide()"></button>
+        <button *ngIf="progress >= 100" type="button" class="btn-close close pull-right ps-3 pt-3 " aria-label="Close" (click)="modalRef?.hide();reset()"></button>
         <div *ngIf="progress >= 100" class="text-center mt-1 txt2 fw-bold fs-4 mt-5"> Position : {{position}}</div>
         <hr *ngIf="progress >= 100" class="mt-1">
         <img *ngIf="progress < 100" src="assets/images/giphy.webp" width="590">
