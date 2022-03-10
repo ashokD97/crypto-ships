@@ -1,0 +1,101 @@
+.card svg.material-icons path {
+    fill: #888;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+//   .card {
+//     all: unset;
+//     border-radius: 4px;
+//     border: 1px solid #eee;
+//     background-color: #fafafa;
+//     height: 40px;
+//     width: 200px;
+//     margin: 0 8px 16px;
+//     padding: 16px;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     align-items: center;
+//     transition: all 0.2s ease-in-out;
+//     line-height: 24px;
+//   }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+ .license{
+   border: 2px solid rgba(0, 0, 0, 0.125);
+   border-radius: 8px;
+ }
+ .crypt-grid{
+  display: grid;
+  grid: auto / auto auto;
+ }
+.ship-type{
+  border-radius: 4px;
+
+}
+.top-left {
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+  font-weight: bold;
+}
+.card{
+  border-radius: 20px;
+}
+.txt2{
+  font-family: cursive;
+}
+.bg-c1{
+  background-image: url('./../../assets/images/625.jpg');
+}
+.raceModal{
+  border: 5px solid cornflowerblue;
+  width: 600px;
+  // border-radius: 55px;
+}
+.race-grid{
+  display: grid;
+  grid: auto / auto auto auto auto auto auto;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+   border-radius: 8px;
+ }

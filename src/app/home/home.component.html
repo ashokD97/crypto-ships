@@ -1,0 +1,178 @@
+<carousel class="mb-1">
+    <slide>
+        <div class="text-center py-5 bg-dark text-white">
+            <h2>First custom content</h2>
+            <div class="lead">
+                <h3>First slide label</h3>
+                <p>Banner area for promotional image and text.</p>
+            </div>
+        </div>
+    </slide>
+    <slide>
+        <div class="text-center py-5 bg-dark text-white">
+            <h2>Second custom content</h2>
+            <div class="lead">
+                <h3>Second slide label</h3>
+                <p>Banner area for promotional image and text.</p>
+            </div>
+        </div>
+    </slide>
+    <slide>
+        <div class="text-center py-5 bg-dark text-white">
+            <h2>Third custom content</h2>
+            <div class="lead">
+                <h3>Third slide label</h3>
+                <p>Banner area for promotional image and text. </p>
+            </div>
+        </div>
+    </slide>
+</carousel>
+<div class="container mt-3 mb-5">
+
+    <div class="row">
+        <div class="col-sm-4 card-container" *ngFor="let ship of ships">
+            <div class="card">
+                <img src="assets/images/ship1.png" class="card-img-top shipImg" alt="...">
+                <div class="card-body d-flex flex-column mt-2">
+                    <div class="rounded-div my-2 d-flex justify-content-between license p-1 ps-3 pe-3">
+                        <div>
+                            <p class="m-0 mt-2">Change</p><b>Model No.</b>
+                        </div>
+                        <div style="position: relative;">
+                            <img src="assets/images/floor.png" width="64">
+                            <div class="top-left">{{ship.model}}</div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div
+                            class="bg-success text-white px-2 py-1 br-25 d-flex flex-column justify-content-center align-items-center ship-type">
+                            <small>Type</small><b>Common</b>
+                        </div>
+                        <div class="d-flex rounded-div align-items-center justify-content-between">
+                            <div><small>Name</small><b class="text-success d-block">Poseidon</b></div>
+                            <div class="mx-3">Icon</div>
+                        </div>
+                    </div>
+                    <div class="mt-2 license p-2 crypt-grid">
+                        <div class="ps-4 pb-2">
+                            <span class="badge bg-info text-dark">Info</span>
+                            <span class="ms-2">Level : <strong>7</strong></span>
+                        </div>
+                        <div class="ps-4 pb-2">
+                            <span class="badge bg-primary text-dark">Info</span>
+                            <span class="ms-2">Power : <strong>7</strong></span>
+                        </div>
+                        <div class="ps-4 pb-2">
+                            <span class="badge bg-warning text-dark">Info</span>
+                            <span class="ms-2">Exp : <strong>7</strong></span>
+                        </div>
+                        <div class="ps-4 pb-2">
+                            <span class="badge bg-success text-dark">Info</span>
+                            <span class="ms-2">Fuel : <strong>7</strong></span>
+                        </div>
+                        <div class="ps-4 pb-2">
+                            <span class="badge bg-danger text-dark">Info</span>
+                            <span class="ms-2">Speed : <strong>7</strong></span>
+                        </div>
+                        <div class="ps-4 pb-2">
+                            <span class="badge bg-info text-dark">Info</span>
+                            <span class="ms-2">Drift : <strong>7</strong></span>
+                        </div>
+                    </div>
+                    <div class="mt-2 mb-2 crypt-grid">
+                        <button class="btn text-white txt2 bg-success license mr-2"
+                            (click)="openModal(template)">Start</button>
+                        <button class="btn text-white txt2 bg-warning license ms-2">Sell</button>
+                    </div>
+                    <!-- <button class="btn btn-primary license txt2">Quick Race (FEE : 1 SHP)</button>
+                    <div class="text-center mt-1 txt2 fw-bold fs-6">Sell this ship!</div> -->
+                </div>
+            </div>
+        </div>
+        <!--        
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+<ng-template #template class="">
+
+    <div class="modal-body raceModal p-0">
+        <img src="assets/images/giphy.webp" width="590">
+        <progressbar class="mt-2 mb-2" [max]="100" [value]="66" [striped]="true" [animate]="true"><i></i></progressbar>
+        <div class="race-grid m-2">
+            <div class="m-3"><span class="badge bg-danger text-white">1 st</span></div>
+            <div class="m-3">
+                <img src="assets/images/ps1.png" width="38"></div>
+            <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
+            <div class="m-3">
+                <span class="ms-2">Drift : <strong>7</strong></span>
+            </div>
+            <div class="m-3">
+                <span class="ms-2">Power : <strong>7</strong></span>
+            </div>
+            <div class="m-3">
+                <span class="ms-2">Speed : <strong>7</strong></span>
+            </div>
+        </div>
+        <div class="race-grid m-2">
+            <div class="m-3"><span class="badge bg-warning text-white">2 nd</span></div>
+            <div class="m-3"><img src="assets/images/ps2.png" width="38"></div>
+            <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
+            <div class="m-3">
+                <span class="ms-2">Drift : <strong>7</strong></span>
+            </div>
+            <div class="m-3">
+                <span class="ms-2">Power : <strong>7</strong></span>
+            </div>
+            <div class="m-3">
+                <span class="ms-2">Speed : <strong>7</strong></span>
+            </div>
+        </div><div class="race-grid m-2">
+            <div class="m-3"><span class="badge bg-primary text-white">3 rd</span></div>
+            <div class="m-3"><img src="assets/images/ps3.png" width="38"></div>
+            <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
+            <div class="m-3">
+                <span class="ms-2">Drift : <strong>7</strong></span>
+            </div>
+            <div class="m-3">
+                <span class="ms-2">Power : <strong>7</strong></span>
+            </div>
+            <div class="m-3">
+                <span class="ms-2">Speed : <strong>7</strong></span>
+            </div>
+        </div><div class="race-grid m-2">
+            <div class="m-3"><span class="badge bg-success text-white">4 th</span></div>
+            <div class="m-3"><img src="assets/images/ps4.png" width="38"></div>
+            <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
+            <div class="m-3">
+                <span class="ms-2">Drift : <strong>7</strong></span>
+            </div>
+            <div class="m-3">
+                <span class="ms-2">Power : <strong>7</strong></span>
+            </div>
+            <div class="m-3">
+                <span class="ms-2">Speed : <strong>7</strong></span>
+            </div>
+        </div><div class="race-grid m-2">
+            <div class="m-3"><span class="badge bg-info text-white">5 th</span></div>
+            <div class="m-3"><img src="assets/images/ps5.png" width="38"></div>
+            <div class="m-3"><span class="badge bg-danger text-dark"></span></div>
+            <div class="m-3">
+                <span class="ms-2">Drift : <strong>7</strong></span>
+            </div>
+            <div class="m-3">
+                <span class="ms-2">Power : <strong>7</strong></span>
+            </div>
+            <div class="m-3">
+                <span class="ms-2">Speed : <strong>7</strong></span>
+            </div>
+        </div>
+    </div>
+</ng-template>
