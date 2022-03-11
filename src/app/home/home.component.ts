@@ -26,13 +26,14 @@ export class HomeComponent implements OnInit {
     {
       name: "ship1",
       model: "s111"
-    }, {
-      name: "ship2",
-      model: "s222"
-    }, {
-      name: "ship3",
-      model: "s333"
-    }
+    },
+    //  {
+    //   name: "ship2",
+    //   model: "s222"
+    // }, {
+    //   name: "ship3",
+    //   model: "s333"
+    // }
   ];
   racers: any = [
     {id:1, drift: 1, power: 2, speed: 3 },
