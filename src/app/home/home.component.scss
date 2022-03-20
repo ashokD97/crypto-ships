@@ -86,13 +86,13 @@
   font-family: cursive;
 }
 .bg-c1{
-  background-image: url('./../../assets/images/banner5.png');
+  background-image: url('./../../assets/images/banner3.png');
 }
 .bg-c2{
   background-image: url('./../../assets/images/banner4.png');
 }
 .bg-c3{
-  background-image: url('./../../assets/images/banner3.png');
+  background-image: url('./../../assets/images/banner5.png');
 }
 .raceModal{
   border: 5px solid cornflowerblue;
@@ -108,4 +108,17 @@
  .shuffle-item{
   // position: absolute;
   transition: all 0.5s;
+ }
+ .bg-common{
+   min-width: 93px;
+   background-color: #64b910;
+ }
+ .bg-uncommon{
+  background-color: blue;
+
+ }
+ .bg-rare{
+  min-width: 93px;
+  background-color: violet;
+
  }
