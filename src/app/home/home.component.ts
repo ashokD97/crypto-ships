@@ -41,10 +41,10 @@ export class HomeComponent implements OnInit {
       model: "s222",
       rarity:'Rare',
       stats:{
-        speed:7,
-        stiffness:5,
+        speed:5,
+        stiffness:6,
         propulsion:6,
-        strength:8,
+        strength:3,
         planking:5,
         size:4
       }
@@ -53,10 +53,10 @@ export class HomeComponent implements OnInit {
       model: "s333",
       rarity:'Uncommon',
       stats:{
-        speed:7,
-        stiffness:5,
+        speed:6,
+        stiffness:3,
         propulsion:6,
-        strength:8,
+        strength:7,
         planking:5,
         size:4
       }
