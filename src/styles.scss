@@ -7,7 +7,8 @@
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
 body{
-    background-image: linear-gradient(to right, #00b4db, #0083b0);
+    // background-image: linear-gradient(to right, #00b4db, #0083b0);
+    background-image: url('assets/images/bg.jpg');
 }
 .bg-warning{
     background-color: #d58f28 !important;
@@ -21,6 +22,7 @@ body{
 }
 .shipImg{
     border-radius: 20px;
+    max-height: 410px;
 }
 .modal-content{
   width: 600px;

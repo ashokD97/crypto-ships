@@ -24,16 +24,43 @@ export class HomeComponent implements OnInit {
   position:any = "";
   ships: any = [
     {
-      name: "ship1",
-      model: "s111"
+      name: "Ship1",
+      model: "s111",
+      rarity:'Common',
+      stats:{
+        speed:7,
+        stiffness:5,
+        propulsion:6,
+        strength:8,
+        planking:5,
+        size:4
+      }
     },
-    //  {
-    //   name: "ship2",
-    //   model: "s222"
-    // }, {
-    //   name: "ship3",
-    //   model: "s333"
-    // }
+     {
+      name: "Ship2",
+      model: "s222",
+      rarity:'Rare',
+      stats:{
+        speed:7,
+        stiffness:5,
+        propulsion:6,
+        strength:8,
+        planking:5,
+        size:4
+      }
+    }, {
+      name: "Ship3",
+      model: "s333",
+      rarity:'Uncommon',
+      stats:{
+        speed:7,
+        stiffness:5,
+        propulsion:6,
+        strength:8,
+        planking:5,
+        size:4
+      }
+    }
   ];
   racers: any = [
     {id:1, drift: 1, power: 2, speed: 3 },
