@@ -1,6 +1,8 @@
+import { AppService } from './../services/app.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { shuffle } from "lodash";
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,68 +24,52 @@ export class HomeComponent implements OnInit {
     5:'5 th'
   };
   position:any = "";
-  ships: any = [
-    {
-      name: "Ship1",
-      model: "s111",
-      rarity:'Common',
-      stats:{
-        speed:7,
-        stiffness:5,
-        propulsion:6,
-        strength:8,
-        planking:5,
-        size:4
-      }
-    },
-     {
-      name: "Ship2",
-      model: "s222",
-      rarity:'Rare',
-      stats:{
-        speed:5,
-        stiffness:6,
-        propulsion:6,
-        strength:3,
-        planking:5,
-        size:4
-      }
-    }, {
-      name: "Ship3",
-      model: "s333",
-      rarity:'Uncommon',
-      stats:{
-        speed:6,
-        stiffness:3,
-        propulsion:6,
-        strength:7,
-        planking:5,
-        size:4
-      }
-    }
-  ];
+  rewards:any = {};
+  selectedShip = {
+    name:"",
+    img:""
+  };
+  ships: any = [];
   racers: any = [
-    {id:1, drift: 1, power: 2, speed: 3 },
-    {id:2, drift: 2, power: 2, speed: 3 },
-    {id:3, drift: 4, power: 2, speed: 3 },
-    {id:4, drift: 1, power: 3, speed: 3 },
-    {id:5, drift: 3, power: 2, speed: 1 }
+   
+    {id:2, efficiency: 20, maneuvering: 29, speed: 22 },
+    {id:3, efficiency: 24, maneuvering: 28, speed: 23},
+    {id:4, efficiency: 21, maneuvering: 25, speed: 21 },
+    {id:5, efficiency: 22, maneuvering: 26, speed: 20 }
   ]
   progress: number = 0;
   modalRef?: BsModalRef;
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService,private appService:AppService,private toastr: ToastrService) { }
 
 
   ngOnInit(): void {
+    this.getShips();
+    this.getRewards();
+  }
+  getShips(){
+   this.appService.getUserShips().subscribe(res=>{
+     this.ships =res;
+   })
+  }
+  getRewards(){
+    this.appService.getRewards().subscribe(res=>{
+     this.rewards = res;
+    })
   }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, {
       backdrop: 'static',
       keyboard: false
     });
-    this.updateProgress();
+    // this.updateProgress();
+  }
+  rewardsShow(modal:any,shp:any){
+    this.selectedShip.img  =shp.img;
+    this.selectedShip.name  =shp.name;
+  this.openModal(modal);
   }
   updateProgress() {
+    this.racers.unshift({id:1, efficiency: 21, maneuvering: 28, speed: 22 })
     let x = setInterval(() => {
       this.racers = shuffle(this.racers);
       this.racers.forEach((element:any,index:number) => {
@@ -109,11 +95,14 @@ export class HomeComponent implements OnInit {
   reset(){
     this.progress = 0;
     this.racers  = [
-      {id:1, drift: 1, power: 2, speed: 3 },
-      {id:2, drift: 2, power: 2, speed: 3 },
-      {id:3, drift: 4, power: 2, speed: 3 },
-      {id:4, drift: 1, power: 3, speed: 3 },
-      {id:5, drift: 3, power: 2, speed: 1 }
+      {id:2, efficiency: 20, maneuvering: 29, speed: 22 },
+      {id:3, efficiency: 24, maneuvering: 28, speed: 23},
+      {id:4, efficiency: 21, maneuvering: 25, speed: 21 },
+      {id:5, efficiency: 22, maneuvering: 26, speed: 20 }
     ];
+  }
+  claimRewards(){
+    this.modalRef?.hide();
+    this.toastr.success('Coins added to account', 'Congrats!');
   }
 }

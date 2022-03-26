@@ -19,23 +19,6 @@ export class MarketplaceComponent implements OnInit {
         size:4
       }
     },
-    // {
-    //   name:"ship2",
-    //   model:"s222"
-    // },{
-    //   name:"ship3",
-    //   model:"s333"
-    // },
-    // {
-    //   name:"ship4",
-    //   model:"s444"
-    // },{
-    //   name:"ship5",
-    //   model:"s555"
-    // },{
-    //   name:"ship6",
-    //   model:"s666"
-    // }
   ];
   shipsSell:any = [
     {
