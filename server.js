@@ -8,7 +8,7 @@ app.use(cors());
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/crypto-ships'));
 
-app.get('/*', function(req,res) {
+app.get('/', function(req,res) {
     
 res.sendFile(path.join(__dirname+'/dist/crypto-ships/index.html'));
 });
@@ -26,5 +26,5 @@ app.get('/rewards', function (req, res) {
   let rawdata = fs.readFileSync(path.resolve('./src/assets/json/rewards.json'));
   res.send(JSON.parse(rawdata));
 });
-app.listen(3000);
+app.listen(process.env.PORT || 8080); 
 
