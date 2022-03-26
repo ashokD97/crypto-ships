@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import '~ngx-toastr/toastr';
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
 
@@ -21,9 +21,19 @@ body{
     font-family: cursive;
 }
 .shipImg{
+    
+}
+.shipImgRewards{
     border-radius: 20px;
-    max-height: 410px;
+    max-height: 250px;
 }
 .modal-content{
   width: 600px;
+}
+.icon {
+    width: 1.5em;
+    display: inline;
+    margin-right: 10px;
+    position: relative;
+    top: 0.15em;
 }
