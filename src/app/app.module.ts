@@ -14,6 +14,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     CarouselModule.forRoot(),
     TabsModule.forRoot(),
     ModalModule.forRoot(),

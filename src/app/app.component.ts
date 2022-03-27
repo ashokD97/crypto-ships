@@ -11,11 +11,17 @@ export class AppComponent implements OnInit {
   title = 'demo';
   constructor(private appService:AppService){}
   ngOnInit(): void {
-    this.getData();
+    this.setData();
   }
   getData(){
     this.appService.getUserData().subscribe(res=>{
       this.user = res;
+      this.appService.setUserData(res);
     });
+  }
+  setData(){
+    this.appService.recheckData.subscribe(res=>{
+      this.getData();
+    })
   }
 }

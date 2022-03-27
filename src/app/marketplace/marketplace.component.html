@@ -1,65 +1,67 @@
 <div class="container mt-3 mb-5">
     <div class="pt-3">
-        <tabset >
-          <tab  heading="Buy" id="tab1">
-            <div class="row">
-                <div class="col-sm-4 card-container" *ngFor="let ship of shipsBuy">
-                    <div class="card">
-                        <img src="assets/images/ship1.png" class="card-img-top shipImg" alt="...">
-                        <div class="card-body d-flex flex-column mt-2">
-                            <div class="rounded-div my-2 d-flex justify-content-between license p-1 ps-3 pe-3">
-                                <div>
-                                    <p class="m-0 mt-2">Change</p><b>Model No.</b>
+        <tabset>
+            <tab heading="Buy" id="tab1">
+                <div class="row">
+                    <div class="col-sm-4 card-container" *ngFor="let ship of shipsBuy">
+                        <div class="card">
+                            <img src="assets/images/ship1.png" class="card-img-top shipImg" alt="...">
+                            <div class="card-body d-flex flex-column mt-2">
+                                <div class="rounded-div my-2 d-flex justify-content-between license p-1 ps-3 pe-3">
+                                    <div>
+                                        <p class="m-0 mt-2">Change</p><b>Model No.</b>
+                                    </div>
+                                    <div style="position: relative;">
+                                        <img src="assets/images/floor.png" width="64">
+                                        <div class="top-left">{{ship.model}}</div>
+                                    </div>
                                 </div>
-                                <div style="position: relative;">
-                                    <img src="assets/images/floor.png" width="64">
-                                <div class="top-left">{{ship.model}}</div>
+                                <div class="d-flex justify-content-between">
+                                    <div
+                                        class="bg-success text-white px-2 py-1 br-25 d-flex flex-column justify-content-center align-items-center ship-type">
+                                        <small>Type</small><b>Random</b>
+                                    </div>
+                                    <div class="d-flex rounded-div align-items-center justify-content-between">
+                                        <div><small>Name</small><b class="text-success d-block">Buy a ship to name
+                                                it.</b></div>
+                                        <!-- <div class="mx-3">Icon</div> -->
+                                    </div>
                                 </div>
+                                <div class="mt-2 license p-2 crypt-grid">
+                                    <div class="ps-4 pb-2">
+                                        <span class="badge bg-info text-dark">Info</span>
+                                        <span class="ms-2">Speed : <strong>*</strong></span>
+                                    </div>
+                                    <div class="ps-4 pb-2">
+                                        <span class="badge bg-primary text-dark">Info</span>
+                                        <span class="ms-2">Level : <strong>1</strong></span>
+                                    </div>
+                                    <div class="ps-4 pb-2">
+                                        <span class="badge bg-warning text-dark">Info</span>
+                                        <span class="ms-2">Exp : <strong>0</strong></span>
+                                    </div>
+                                    <div class="ps-4 pb-2">
+                                        <span class="badge bg-success text-dark">Info</span>
+                                        <span class="ms-2">Maneuvering : <strong>*</strong></span>
+                                    </div>
+                                    <div class="ps-4 pb-2">
+                                        <span class="badge bg-danger text-dark">Info</span>
+                                        <span class="ms-2">Efficiency : <strong>*</strong></span>
+                                    </div>
+                                    <div class="ps-4 pb-2">
+                                        <span class="badge bg-info text-dark">Info</span>
+                                        <span class="ms-2">Rum : <strong>*</strong></span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary license txt2 mt-2" (click)="buyShip(buyModal)">Buy (FEE :
+                                    500 Coins)</button>
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <div
-                                    class="bg-success text-white px-2 py-1 br-25 d-flex flex-column justify-content-center align-items-center ship-type">
-                                    <small>Type</small><b>Random</b>
-                                </div>
-                                <div class="d-flex rounded-div align-items-center justify-content-between">
-                                    <div><small>Name</small><b class="text-success d-block">Buy a ship to name it.</b></div>
-                                    <!-- <div class="mx-3">Icon</div> -->
-                                </div>
-                            </div>
-                            <div class="mt-2 license p-2 crypt-grid">
-                                <div class="ps-4 pb-2">
-                                    <span class="badge bg-info text-dark">Info</span>
-                                    <span class="ms-2">Speed : <strong>*</strong></span>
-                                </div>
-                                <div class="ps-4 pb-2">
-                                    <span class="badge bg-primary text-dark">Info</span>
-                                    <span class="ms-2">Level : <strong>1</strong></span>
-                                </div>
-                                <div class="ps-4 pb-2">
-                                    <span class="badge bg-warning text-dark">Info</span>
-                                    <span class="ms-2">Exp : <strong>0</strong></span>
-                                </div>
-                                <div class="ps-4 pb-2">
-                                    <span class="badge bg-success text-dark">Info</span>
-                                    <span class="ms-2">Maneuvering : <strong>*</strong></span>
-                                </div>
-                                <div class="ps-4 pb-2">
-                                    <span class="badge bg-danger text-dark">Info</span>
-                                    <span class="ms-2">Efficiency : <strong>*</strong></span>
-                                </div>
-                                <div class="ps-4 pb-2">
-                                    <span class="badge bg-info text-dark">Info</span>
-                                    <span class="ms-2">Rum : <strong>*</strong></span>
-                                </div>
-                            </div>
-                            <button class="btn btn-primary license txt2 mt-2">Buy (FEE : 500 Coins)</button>
                         </div>
                     </div>
+
                 </div>
-       
-            </div>
-          </tab>
-          <!-- <tab heading="My Listings">
+            </tab>
+            <!-- <tab heading="My Listings">
             <div class="row">
                 <div class="col-sm-4 card-container" *ngFor="let ship of shipsSell; let i = index;">
                     <div class="card">
@@ -118,6 +120,44 @@
             </div>
           </tab> -->
         </tabset>
-      </div>
-    
+    </div>
+
 </div>
+<ng-template #buyModal class="">
+
+    <div class="modal-body p-4">
+        <button type="button" class="btn-close close pull-right ps-3 pt-3 " aria-label="Close"
+            (click)="modalRef?.hide()"></button>
+        <div class="input-group mt-5 mb-3">
+            <input type="text" class="form-control" placeholder="Ship Name" aria-label="Ship Name"
+                aria-describedby="button-addon2" [(ngModel)]="newShip.name">
+            <button class="btn btn-primary text-white " type="button" [disabled]="!newShip.name"
+                id="button-addon2" (click)="saveNewShip()">Save</button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Speed</th>
+                    <th scope="col">Maneuvering</th>
+                    <th scope="col">Efficiency</th>
+                    <th scope="col">Rum</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">Exp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">{{newShip.rarity}}</th>
+                    <td>{{newShip.stats.speed}}</td>
+                    <td>{{newShip.stats.maneuvering}}</td>
+                    <td>{{newShip.stats.efficiency}}</td>
+                    <td>{{newShip.stats.rum}}</td>
+                    <td>{{newShip.stats.level}}</td>
+                    <td>{{newShip.stats.exp}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</ng-template>
