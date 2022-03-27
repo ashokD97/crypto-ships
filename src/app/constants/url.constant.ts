@@ -1,5 +1,6 @@
 export const URLS = {
    getData : '/userData',
    getShips:'/userShips',
-   getRewards:'/rewards'
+   getRewards:'/rewards',
+   addShip:'/addShip'
 }
