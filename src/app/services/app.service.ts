@@ -31,6 +31,27 @@ export class AppService {
   addShip(data:any){
     return this.http.post(this.URL(URLS.addShip),data);
   }
+  addRewards(data:any){
+    return this.http.post(this.URL(URLS.addRewards),data);
+  }
+  claimRewards(data:any){
+    return this.http.post(this.URL(URLS.claimRewards),data);
+  }
+  addRum(data:any){
+    return this.http.post(this.URL(URLS.addRum),data);
+  }
+  getUserListings(){
+    return this.http.get(this.URL(URLS.userListings))
+  }
+  cancelListing(data:any){
+    return this.http.post(this.URL(URLS.cancelListing),data);
+  }
+  sellShip(data:any){
+    return this.http.post(this.URL(URLS.sellShip),data);
+  }
+  getShipPrice(){
+    return this.http.get(this.URL(URLS.getShipPrice))
+  }
   private URL(u:string){
      return environment.baseUrl + u;
   }
