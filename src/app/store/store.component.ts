@@ -4,11 +4,12 @@ import { ToastrService } from 'ngx-toastr';
 import { AppService } from '../services/app.service';
 
 @Component({
-  selector: 'app-marketplace',
-  templateUrl: './marketplace.component.html',
-  styleUrls: ['./marketplace.component.scss']
+  selector: 'app-store',
+  templateUrl: './store.component.html',
+  styleUrls: ['./store.component.scss']
 })
-export class MarketplaceComponent implements OnInit {
+export class StoreComponent implements OnInit {
+ 
   modalRef?: BsModalRef;
 
   shipsBuy: any = [
@@ -25,9 +26,7 @@ export class MarketplaceComponent implements OnInit {
       }
     },
   ];
-  shipsSell: any = [
-    
-  ];
+ 
   shipStats: any = {
     1: {
       speed: this.getRandomInt(20, 30),
@@ -63,25 +62,11 @@ export class MarketplaceComponent implements OnInit {
     }
   };
   newShip: any = {};
-  shipPrices: any={};
   constructor(private modalService: BsModalService, private appService: AppService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.getUserListings();
-    this.getShipPrice();
   }
-  getUserListings(){
-    this.appService.getUserListings().subscribe(res=>{
-     this.shipsSell = res;
-    });
-  }
-  cancelListing(name: any) {
-    this.appService.cancelListing({name}).subscribe(res=>{
-      this.getUserListings();
-    this.toastr.success("Ship removed from marketplace.","Info");
-
-    });
-  }
+  
   buyShip(modal: any) {
     if (this.appService.userData() && this.appService.userData().coins > 500) {
       const num = this.getRandomInt(1, 4);
@@ -135,10 +120,5 @@ export class MarketplaceComponent implements OnInit {
     this.toastr.success("Ship added to your Collection","Congrats");
     this.modalRef?.hide();
     this.appService.invokeRecheck.next(true);
-  }
-  getShipPrice(){
-    this.appService.getShipPrice().subscribe(res=>{
-      this.shipPrices = res;
-    })
   }
 }

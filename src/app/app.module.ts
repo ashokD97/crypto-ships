@@ -15,13 +15,15 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
+import { StoreComponent } from './store/store.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ShipCardComponent,
     HomeComponent,
-    MarketplaceComponent
+    MarketplaceComponent,
+    StoreComponent
   ],
   imports: [
     BrowserModule,
